@@ -11,7 +11,7 @@ Clone the project-
 <pre>
 $ git clone https://github.com/Swapnil0506/Heart_Disease_Prediction.git
 </pre><br/>
-Go to the Project-
+Go to the Project(master branch)-
 <pre>
 $ cd Heart_Disease_Prediction
 </pre>
