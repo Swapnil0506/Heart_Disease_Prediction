@@ -9,11 +9,11 @@
 
 Clone the project-
 <pre>
-$ git clone https://github.com/Hungry-Hippoos/Ajnabee-server.git
+$ git clone https://github.com/Swapnil0506/Heart_Disease_Prediction.git
 </pre><br/>
 Go to the Project-
 <pre>
-$ cd Ajnabee-server
+$ cd Heart_Disease_Prediction
 </pre>
 Install all the requirements -
 <pre>
