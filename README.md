@@ -28,3 +28,5 @@ for linux/mac -
 <pre>
 $ py manage.py runserver
 </pre>
+<br/>
+<b> *Note :- Any improvements in the project are welcome !! Just make a pull request.</b>
