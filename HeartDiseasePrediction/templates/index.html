@@ -21,7 +21,17 @@
       <br>
           <hr>
           <div class="form-group">
-            <select name="gender" id="select" class="form-control" aria-placeholder="Choose Category" required title="preference">
+            <div class="input-group">
+              <div class="input-group-prepend">
+                <span class="input-group-text">
+                  <span class="fa fa-user"></span>
+                </span>                    
+              </div>
+              <input type="text" class="form-control" name="name" placeholder="Your Full Name" id="name" aria-invalid="true" required="required">
+            </div>
+          </div>
+          <div class="form-group">
+            <select name="gender" id="select" class="form-control" aria-placeholder="Choose Category" required="required" title="preference">
               <option disabled selected>Gender</option>
               <option>Male</option>
               <option>Female</option>
@@ -51,28 +61,28 @@
             </div>
           </div>
           <div class="form-group">
-            <select name="BPMed" id="select" class="form-control" aria-placeholder="Choose Category" required title="preference">
+            <select name="BPMed" id="select1" class="form-control" aria-placeholder="Choose Category" required="required" title="preference">
               <option disabled selected>Are you on blood-pressure medication?</option>
               <option>Yes</option>
               <option>No</option>
             </select>
           </div>
           <div class="form-group">
-            <select name="PreStroke" id="select" class="form-control" aria-placeholder="Choose Category" required title="preference">
+            <select name="PreStroke" id="select2" class="form-control" aria-placeholder="Choose Category" required="required" title="preference">
               <option disabled selected>Do you have prevalent Stroke?</option>
               <option>Yes</option>
               <option>No</option>
             </select>
           </div>
           <div class="form-group">
-            <select name="PreHyper" id="select" class="form-control" aria-placeholder="Choose Category" required title="preference">
+            <select name="PreHyper" id="select3" class="form-control" aria-placeholder="Choose Category" required="required" title="preference">
               <option disabled selected>Do you have prevalent hypertension?</option>
               <option>Yes</option>
               <option>No</option>
             </select>
           </div>
           <div class="form-group">
-            <select name="Diabi" id="select" class="form-control" aria-placeholder="Choose Category" required title="preference">
+            <select name="Diabi" id="select4" class="form-control" aria-placeholder="Choose Category" required="required" title="preference">
               <option disabled selected>Do you have diabetes?</option>
               <option>Yes</option>
               <option>No</option>
@@ -86,7 +96,8 @@
                   <span class="fa fa-user"></span>
                 </span>                    
               </div>
-              <input type="number" class="form-control" max="400" name="TotalCho" placeholder="Your Total Cholesterol level" id="SysBP" aria-invalid="true" required="required" pattern="[0-9]" inputmode="numerical">
+              <input type="number" class="form-control" max="400" name="TotalCho" placeholder="Your Total Cholesterol level (100-200)" id="TotalCho" aria-invalid="true" required="required" pattern="[0-9]" inputmode="numerical">
+              <!-- normal (100-200) -->
             </div>
           </div>
 
@@ -98,26 +109,29 @@
                 </span>                    
               </div>
               <input type="number" class="form-control" max="400" name="SysBP" placeholder="Your systolic blood pressure" id="SysBP" aria-invalid="true" required="required" pattern="[0-9]" inputmode="numerical">
+              <!-- normal range <120 -->
             </div>
           </div>
           <div class="form-group">
             <div class="input-group">
               <div class="input-group-prepend">
                 <span class="input-group-text">
-                  <span class="fa fa-user"></span>
+                  <i class="fa fa-user"></i>
                 </span>                    
               </div>
               <input type="number" class="form-control" max="400" name="DiaBP" placeholder="Your diastolic blood pressure" id="DiaBP" aria-invalid="true" required="required" pattern="[0-9]" inputmode="numerical">
+              <!-- normal range <80 -->
             </div>
           </div>
-          <div class="form-group">
+          <div class="form-group">  
             <div class="input-group">
               <div class="input-group-prepend">
                 <span class="input-group-text">
-                  <span class="fa fa-user"></span>
+                  <span class="fa fa-child"></span>
                 </span>                    
               </div>
               <input type="number" class="form-control" max="400" name="BMI" placeholder="Your BMI" id="BMI" aria-invalid="true" required="required" pattern="[0-9]" inputmode="numerical">
+              <!-- 18 to 25 -->
             </div>
           </div>
           <div class="form-group">
@@ -128,6 +142,7 @@
                 </span>                    
               </div>
               <input type="number" class="form-control" max="400" name="HeartRate" placeholder="Your Heart Rate" id="Heart Rate" aria-invalid="true" required="required" pattern="[0-9]" inputmode="numerical">
+              <!-- normal 72 to 90 -->
             </div>
           </div><div class="form-group">
             <div class="input-group">
@@ -137,6 +152,7 @@
                 </span>                    
               </div>
               <input type="number" class="form-control" max="400" name="Glucose" placeholder="Glucose in your body" id="Glucose" aria-invalid="true" required="required" pattern="[0-9]" inputmode="numerical">
+              <!-- normal level <100 -->
             </div>
           </div>
           <br>
@@ -145,7 +161,34 @@
             <script>
               document.getElementById('myCheckbox').onchange = function() {
                 document.getElementById('Cigarettes').disabled = !this.checked;
-            };
+              };
+                full_name = document.getElementById("name").value;
+                sessionStorage.setItem("full_name", full_name);
+                age= document.getElementById("age").value;
+                sessionStorage.setItem("age", age);
+                totalCho = document.getElementById("TotalCho").value;
+                sessionStorage.setItem("totalCho", totalCho);
+                sys_bp = document.getElementById("SysBP").value;
+                sessionStorage.setItem("sys_bp", sys_bp);
+                dia_bp = document.getElementById("DiaBP").value;
+                sessionStorage.setItem("dia_bp", dia_bp);
+                bmi = document.getElementById("BMI").value;
+                sessionStorage.setItem("bmi", bmi);
+                heartrate = document.getElementById("Heart Rate").value;
+                sessionStorage.setItem("heartrate", heartrate);
+                glucose = document.getElementById("Glucose").value;
+                sessionStorage.setItem("glucose", glucose);
+                bpmed = document.getElementById("select1");
+                var sel1= bpmed.value;
+                sessionStorage.setItem("sel1", sel1);
+                preStroke = document.getElementById("select2");
+                var sel2= preStroke.value;
+                sessionStorage.setItem("sel2", sel2);
+                preHyper = document.getElementById("select3");
+                var sel3= preHyper.value;
+                sessionStorage.setItem("sel3", sel3);
+                
+            // };
             </script>
         </div>
           </form>

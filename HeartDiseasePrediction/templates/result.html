@@ -11,18 +11,105 @@
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.min.js"></script>
 </head>
 <body style="background-color: #B0C4DE;">
 
-    <div class="container">
+    <div class="container" id="health">
 
-        <div class="jumbotron jumbotron-fluid" style="margin-top: 250px;">
+        <div class="jumbotron jumbotron-fluid" id="result" style="margin-top: 200px;">
+            <h1 style="text-align: center;">Heart Report</h1><br><br><br>
             <div class="container">
-              <h1 class="display-4" style="font-size: 70px;"><b>Results {{ value }}</b></h1>
+              <h1 class="display-4" style="font-size: 70px;"><b>Results - {{ value }}</b></h1><br>
               {% if value %}
-              <p class="lead" style="font-size: 45px;">You have Heart Disease. Please check up with a Docter ASAP.</p>
+              <p id="output" style="font-size: 28px;"></p>
+              <p class="lead" style="font-size: 40px; color: rgb(145, 10, 10);">Oh no!! You are at a serious risk of Coronary Heart Disease. Please check up with a Cardiologist ASAP. &#128532;</p>
+              <p>these are the red flags for you</p><br>
+              <p id="op0"></p>
+              <p id="op1"></p>
+              <p id="op2"></p>
+              <p id="op3"></p>
+              <p id="op4"></p>
+              <p id="op5"></p>
+              <p id="op6"></p>
+              &nbsp;<p style="font-size: 20px;">Here are a few tips for you.</p>
+              <ul>
+                  <li style="font-size: 20px;">
+                      Eat a healthy diet that strictly focusses on fruits, vegetables, whole grains, lean proteins(such as fish), beans,
+                      lentils, nuts and olive oil.
+                  </li>
+                  <li style="font-size: 20px;">
+                    Strictly avoid red meat, processed foods, and beverages with added sugars.
+                </li>
+                <li style="font-size: 20px;">
+                    Get good quality sleep.
+                </li>
+                <li style="font-size: 20px;">
+                    Stop smoking.
+                </li>
+                <li style="font-size: 20px;">
+                    Manage stress efficiently.
+                </li>
+                <li style="font-size: 20px;">
+                    Aim for atleast 45-60 minutes of physical activity daily.
+                </li>
+                <li style="font-size: 20px;">
+                    Get regular health screenings.
+                </li>
+                <li style="font-size: 20px;">
+                    Take your medications(if on any) consistently.
+                </li>
+              </ul>
+              <br>
+              <p style="font-size: 20px; text-align: center;">Here are a few articles for your help</p>
+              <div class="text-center">
+              <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC2787400/" style="text-decoration: none" target="_blank">Coronary Heart Disease: Diagnosis and Management</a><br>
+              <a href="https://www.medicalnewstoday.com/articles/184130" style="text-decoration: none" target="_blank">Coronary Heart Disease: Causes, symptoms and treatment</a><br>
+              <a href="https://jamanetwork.com/journals/jama/fullarticle/199861" style="text-decoration: none" target="_blank">Coronary Heart Disease: More About It</a><br>
+              <a href="https://jamanetwork.com/journals/jama/fullarticle/199861" style="text-decoration: none" target="_blank">Coronary Heart Disease: Article based on risk factors</a>
+              <a id="btn-Convert-Html2Image" class="btn btn-primary" style="color: white;">Download Report as PNG</a>
+              </div>
               {% else %}
-              <p class="lead">You are Healthy.</p>
+              <p id="output" style="font-size: 28px;"></p>
+              <p class="lead" style="font-size: 40px; color: rgb(7, 128, 7);">Congratulations!!! You are Healthy. &#128512; </p>
+              <p style="font-size: 20px;">You can still follow these to avoid any risk of Coronary Heart Disease</p>
+              <ul>
+                <li style="font-size: 20px;">
+                    Eat a balanced diet that includes everything like vitamins, proteins, minerals, carbohydrates, fats, etc.
+                </li>
+                <li style="font-size: 20px;">
+                  Avoid red meat, processed foods, and beverages with added sugars.
+              </li>
+              <li style="font-size: 20px;">
+                  Get good quality sleep.
+              </li>
+              <li style="font-size: 20px;">
+                  Stop smoking.
+              </li>
+              <li style="font-size: 20px;">
+                  Manage stress efficiently.
+              </li>
+              <li style="font-size: 20px;">
+                  Aim for atleast 45-60 minutes of physical activity daily.
+              </li>
+              <li style="font-size: 20px;">
+                  Get regular health screenings.
+              </li>
+              <li style="font-size: 20px;">
+                  Take your medications(if on any) consistently.
+              </li>
+            </ul>
+            <br>
+              <p style="font-size: 20px; text-align: center;">Here are a few articles for your help</p><br>
+              <div class="text-center">
+              <a href="https://www.sharecare.com/static/health-articles" style="text-decoration: none" target="_blank">Top Health Articles</a><br>
+              <a href="https://www.geisinger.org/health-and-wellness/wellness-articles" style="text-decoration: none" target="_blank">Health and Wellness Articles</a><br>
+              <a href="https://www.usnews.com/news/health-news" style="text-decoration: none" target="_blank">Trendy Health News</a><br>
+              <a href="https://www.grcc.edu/faculty-staff/human-resources/professional-development/employee-wellness/seven-dimensions-wellness" style="text-decoration: none" target="_blank">Dimensions of Wellness</a>
+              <a href="http://www.nhp.gov.in/healthylivingviewall" style="text-decoration: none" target="_blank">A Healthy Lifestyle</a><br>
+              <!-- <a id="btn-Convert-Html2Image" class="btn btn-primary">Download Report as PNG</a> -->
+              </div>
               {% endif %}
             </div>
         </div>
@@ -31,3 +118,68 @@
     
 </body>
 </html>
+
+<script type="text/javascript">
+    var full_name = sessionStorage.getItem("full_name");
+    document.getElementById('output').innerHTML = "Dear "+full_name+ ",";
+    console.log("hi")
+    var totalCho= sessionStorage.getItem("totalCho");
+    var sys_bp= sessionStorage.getItem("sys_bp");
+    var dia_bp= sessionStorage.getItem("dia_bp");
+    var heartrate= sessionStorage.getItem("heartrate");
+    var bmi= sessionStorage.getItem("bmi");
+    var glucose= sessionStorage.getItem("glucose");
+    console.log("hi")
+    var age= sessionStorage.getItem("age");
+    var sel1= sessionStorage.getItem("sel1");
+    var sel2= sessionStorage.getItem("sel2");
+    var sel3= sessionStorage.getItem("sel3");
+    console.log("hi")
+    if(totalCho>200){
+        console.log("hi")
+        document.getElementById("op0").innerHTML = "Hello"+sys_bp+ "You have a high cholesterol which has a direct effect on coronary heart disease.";
+    }
+    if(sys_bp>80){
+        console.log("hi")
+        document.getElementById("op1").innerHTML = "Hello"+sys_bp+ "You have a high systolic blood pressure.";
+    }
+    if(dia_bp>120){
+        console.log("hi")
+        document.getElementById("op2").innerHTML = "You have a high diastolic blood pressure.";
+    }
+    if(heartrate>80){
+        document.getElementById("op3").innerHTML = "Your heart rate is abnormally high which has a direct link with heart related problems.";
+    }
+    if(bmi<23){
+        document.getElementById("op4").innerHTML = "Your BMI indicates obesity which on long term is quite hazardous.";
+    }
+    if(glucose>80){
+        document.getElementById("op5").innerHTML = "Your heart rate is abnormally high.";
+    }
+    if(sel1=="Yes"){
+        document.getElementById('op6').innerHTML = "Being on blood pressure medication can increase your disease chances.";
+    }
+    if(sel1=="Yes"){
+        document.getElementById('op6').innerHTML = "Being on blood pressure medication can increase your disease chances.";
+    }
+    if(sel1=="Yes"){
+        document.getElementById('op6').innerHTML = "Being on blood pressure medication can increase your disease chances.";
+    }
+    $(document).ready(function () {
+            var element = $("#result"); // global variable
+            var getCanvas; //global variable
+            html2canvas(element, {
+                onrendered: function (canvas) {
+                    getCanvas = canvas;
+                }
+            });
+ 
+            $("#btn-Convert-Html2Image").on('click', function () {
+                var imgageData = getCanvas.toDataURL("image/png");
+                //Now browser starts downloading it instead of just showing it
+                var newData = imgageData.replace(/^data:image\/png/, "data:application/octet-stream");
+                $("#btn-Convert-Html2Image").attr("download", "report.png").attr("href", newData);
+            });
+        });
+
+</script>

@@ -64,7 +64,7 @@ def results(request):
         else:
             DiabiBinary = 0
 
-        predictionModel = pickle.load(open('D:\DJANGO\HeartDiseasePredictionProject\HeartDiseasePrediction\AnotherPickleFile','rb'))
+        predictionModel = pickle.load(open('D:\Extra files\Heart_Disease_Prediction\HeartDiseasePrediction\AnotherPickleFile','rb'))
         userInputList = [[genderBinary,userAge,smokerBinary,userCigrattes,BPMedsBinary,PreStrokeBinary,PreHyperBinary,DiabiBinary,userTotalCho,userSysBP,userDiaBP,userBMI,userHeartRate,userGlucose]]
         print(userInputList)
         numpyAray = np.array(userInputList)
