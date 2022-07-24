@@ -14,6 +14,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.min.js"></script>
 </head>
+
 <body style="background-color: #B0C4DE;">
 
     <div class="container" id="health">
@@ -25,14 +26,19 @@
               {% if value %}
               <p id="output" style="font-size: 28px;"></p>
               <p class="lead" style="font-size: 40px; color: rgb(145, 10, 10);">Oh no!! You are at a serious risk of Coronary Heart Disease. Please check up with a Cardiologist ASAP. &#128532;</p>
-              <p>these are the red flags for you</p><br>
-              <p id="op0"></p>
-              <p id="op1"></p>
-              <p id="op2"></p>
-              <p id="op3"></p>
-              <p id="op4"></p>
-              <p id="op5"></p>
-              <p id="op6"></p>
+              <!-- <button class="btn btn-primary" onclick="getResult()">GET</button> -->
+              <p style="font-size: 20px;">These are the Red Flags for you:-</p>
+              <p id="op10" style="font-size: 20px;"></p>
+              <p id="op0" style="font-size: 20px;"></p>
+              <p id="op1" style="font-size: 20px;"></p>
+              <p id="op2" style="font-size: 20px;"></p>
+              <p id="op3" style="font-size: 20px;"></p>
+              <p id="op4" style="font-size: 20px;"></p>
+              <p id="op5" style="font-size: 20px;"></p>
+              <p id="op6" style="font-size: 20px;"></p>
+              <p id="op7" style="font-size: 20px;"></p>
+              <p id="op8" style="font-size: 20px;"></p>
+              <p id="op9" style="font-size: 20px;"></p>
               &nbsp;<p style="font-size: 20px;">Here are a few tips for you.</p>
               <ul>
                   <li style="font-size: 20px;">
@@ -67,13 +73,14 @@
               <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC2787400/" style="text-decoration: none" target="_blank">Coronary Heart Disease: Diagnosis and Management</a><br>
               <a href="https://www.medicalnewstoday.com/articles/184130" style="text-decoration: none" target="_blank">Coronary Heart Disease: Causes, symptoms and treatment</a><br>
               <a href="https://jamanetwork.com/journals/jama/fullarticle/199861" style="text-decoration: none" target="_blank">Coronary Heart Disease: More About It</a><br>
-              <a href="https://jamanetwork.com/journals/jama/fullarticle/199861" style="text-decoration: none" target="_blank">Coronary Heart Disease: Article based on risk factors</a>
+              <a href="https://jamanetwork.com/journals/jama/fullarticle/199861" style="text-decoration: none" target="_blank">Coronary Heart Disease: Article based on risk factors</a><br><br>
               <a id="btn-Convert-Html2Image" class="btn btn-primary" style="color: white;">Download Report as PNG</a>
               </div>
               {% else %}
               <p id="output" style="font-size: 28px;"></p>
               <p class="lead" style="font-size: 40px; color: rgb(7, 128, 7);">Congratulations!!! You are Healthy. &#128512; </p>
-              <p style="font-size: 20px;">You can still follow these to avoid any risk of Coronary Heart Disease</p>
+              <br>
+              <p style="font-size: 20px;">You can still follow these to avoid any risk of Coronary Heart Disease:</p>
               <ul>
                 <li style="font-size: 20px;">
                     Eat a balanced diet that includes everything like vitamins, proteins, minerals, carbohydrates, fats, etc.
@@ -107,8 +114,8 @@
               <a href="https://www.geisinger.org/health-and-wellness/wellness-articles" style="text-decoration: none" target="_blank">Health and Wellness Articles</a><br>
               <a href="https://www.usnews.com/news/health-news" style="text-decoration: none" target="_blank">Trendy Health News</a><br>
               <a href="https://www.grcc.edu/faculty-staff/human-resources/professional-development/employee-wellness/seven-dimensions-wellness" style="text-decoration: none" target="_blank">Dimensions of Wellness</a>
-              <a href="http://www.nhp.gov.in/healthylivingviewall" style="text-decoration: none" target="_blank">A Healthy Lifestyle</a><br>
-              <!-- <a id="btn-Convert-Html2Image" class="btn btn-primary">Download Report as PNG</a> -->
+              <a href="http://www.nhp.gov.in/healthylivingviewall" style="text-decoration: none" target="_blank">A Healthy Lifestyle</a><br><br>
+              <a id="btn-Convert-Html2Image" class="btn btn-primary">Download Report as PNG</a>
               </div>
               {% endif %}
             </div>
@@ -117,53 +124,55 @@
     </div>
     
 </body>
-</html>
 
 <script type="text/javascript">
+    // function getResult(){
     var full_name = sessionStorage.getItem("full_name");
     document.getElementById('output').innerHTML = "Dear "+full_name+ ",";
-    console.log("hi")
     var totalCho= sessionStorage.getItem("totalCho");
     var sys_bp= sessionStorage.getItem("sys_bp");
     var dia_bp= sessionStorage.getItem("dia_bp");
     var heartrate= sessionStorage.getItem("heartrate");
     var bmi= sessionStorage.getItem("bmi");
     var glucose= sessionStorage.getItem("glucose");
-    console.log("hi")
     var age= sessionStorage.getItem("age");
     var sel1= sessionStorage.getItem("sel1");
     var sel2= sessionStorage.getItem("sel2");
     var sel3= sessionStorage.getItem("sel3");
-    console.log("hi")
+    var sel4= sessionStorage.getItem("sel4");
+
+    if(age>50){
+        document.getElementById("op10").innerHTML = ">> You are a senior citizen and hence already are closer to coronary disease.";
+    }
     if(totalCho>200){
-        console.log("hi")
-        document.getElementById("op0").innerHTML = "Hello"+sys_bp+ "You have a high cholesterol which has a direct effect on coronary heart disease.";
+        document.getElementById("op0").innerHTML = ">> You have a high cholesterol which has a direct effect on coronary heart disease.";
     }
     if(sys_bp>80){
-        console.log("hi")
-        document.getElementById("op1").innerHTML = "Hello"+sys_bp+ "You have a high systolic blood pressure.";
+        document.getElementById("op1").innerHTML = ">> You have a high systolic blood pressure.";
     }
     if(dia_bp>120){
-        console.log("hi")
-        document.getElementById("op2").innerHTML = "You have a high diastolic blood pressure.";
+        document.getElementById("op2").innerHTML = ">> You have a high diastolic blood pressure.";
     }
     if(heartrate>80){
-        document.getElementById("op3").innerHTML = "Your heart rate is abnormally high which has a direct link with heart related problems.";
+        document.getElementById("op3").innerHTML = ">> Your heart rate is abnormally high which has a direct link with heart related problems.";
     }
-    if(bmi<23){
-        document.getElementById("op4").innerHTML = "Your BMI indicates obesity which on long term is quite hazardous.";
+    if(bmi>23){
+        document.getElementById("op4").innerHTML = ">> Your BMI indicates obesity which on long term is quite hazardous.";
     }
     if(glucose>80){
-        document.getElementById("op5").innerHTML = "Your heart rate is abnormally high.";
+        document.getElementById("op5").innerHTML = ">> Your heart rate is abnormally high.";
     }
     if(sel1=="Yes"){
-        document.getElementById('op6').innerHTML = "Being on blood pressure medication can increase your disease chances.";
+        document.getElementById("op6").innerHTML = ">> Being on blood pressure medication can increase your disease chances.";
     }
-    if(sel1=="Yes"){
-        document.getElementById('op6').innerHTML = "Being on blood pressure medication can increase your disease chances.";
+    if(sel2=="Yes"){
+        document.getElementById("op7").innerHTML = ">> If you had a prevalent stroke can increase your disease chances.";
     }
-    if(sel1=="Yes"){
-        document.getElementById('op6').innerHTML = "Being on blood pressure medication can increase your disease chances.";
+    if(sel3=="Yes"){
+        document.getElementById("op8").innerHTML = ">> Having a prevalent hypertension can increase your disease chances.";
+    }
+    if(sel4=="Yes"){
+        document.getElementById("op9").innerHTML = ">> If you have diabetes, nothing can be more dangerous and you are closest to coronary heart disease.";
     }
     $(document).ready(function () {
             var element = $("#result"); // global variable
@@ -181,5 +190,8 @@
                 $("#btn-Convert-Html2Image").attr("download", "report.png").attr("href", newData);
             });
         });
-
+    // }
 </script>
+
+</html>
+
